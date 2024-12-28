@@ -1,0 +1,93 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
+    background-attachment: fixed;
+    height: 90vh;
+    background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* h1, h2, p {
+    font-family: 'Comic Sans MS', cursive;
+} */
+
+.container {
+    width: 85%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, #427D9D, #164863);
+    color: white;
+    border-radius: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+nav ul li {
+    margin: 0 50px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #164863;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #0e2c3c;
+}
+
+h2 {
+    margin-top: 60px;
+}
+
+section {
+    text-align: center;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.feature-item {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    margin: 10px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition */
+}
+
+.feature-item:hover {
+    transform: translateY(-5px) scale(1.02); /* Slightly lift and scale */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    background-color: #f0f8ff; /* Light background color change on hover */
+}
+
+.feature-item h3 {
+    color: #427D9D; /* Color for feature heading */
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: white;
+}

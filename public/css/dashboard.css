@@ -1,0 +1,109 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
+    background-attachment: fixed;
+    height: 90vh;
+    background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #555;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #427D9D;
+    color: white;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #164863;
+}
+
+#task-list-section {
+    margin-top: 70px;
+}
+
+/* Display tasks in blocks using flexbox */
+#task-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;  /* Space between tasks */
+    justify-content: center;
+}
+
+.task {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 250px;  /* Set a fixed width for each task block */
+    height: auto;  /* Automatically adjust height */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition for hover */
+}
+
+.task h3 {
+    margin: 0 0 10px;
+    color: #427D9D;
+    text-align: center;
+}
+
+.task p {
+    font-size: 14px;
+    color: #666;
+}
+
+.task-actions {
+    margin-top: auto;
+    text-align: center;
+}
+
+.task-actions a {
+    text-decoration: none;
+    color: white;
+    background-color: #427D9D;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.task-actions a:hover {
+    background-color: #164863;
+}
+
+/* Hover effect on task block */
+.task:hover {
+    transform: translateY(-10px);  /* Lift the task block slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Stronger shadow on hover */
+    border-color: #427D9D;  /* Change border color on hover */
+}
+
+.task:hover h3 {
+    color: #164863;  /* Change task title color on hover */
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>User Login</h1>
+
+    <div class="container">
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your Username" style="width: 96.5%;" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your Password" style="width: 99%; height: 36.5px; font-family: 'Comic Sans MS', cursive;">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div id="login-result"></div>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>

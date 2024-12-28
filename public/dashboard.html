@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- Add your CSS file link -->
+</head>
+<body>
+    <h1>User Dashboard</h1>
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <nav>
+            <ul>
+                <li><a href="create.html">Create Task</a></li>
+                <li><a href="update.html">Update Task</a></li>
+                <li><a href="delete.html">Remove Task</a></li>
+                <!-- <li><a href="search.html">Search Task</a></li> -->
+                <li><a href="index.html" id="logout-btn">Logout</a></li> <!-- Logout Tab -->
+            </ul>
+        </nav>
+
+        <!-- Task List Section -->
+        <section id="task-list-section">
+            <h2 style="color: #555;">Your Tasks</h2>
+            <div id="task-list"></div> <!-- Task list will be populated here -->
+        </section>
+    </div>
+
+    <script src="js/dashboard.js"></script> <!-- Add your JS file link -->
+</body>
+</html>

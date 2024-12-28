@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New User</title>
+    <link rel="stylesheet" href="css/user.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form id="user-form" style="margin: 60px auto; width: 650px;">
+        <label for="email" style="font-size: 19px;">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="username" style="font-size: 19px;">Username:</label>
+        <input type="text" id="username" required>
+
+        <label for="password" style="font-size: 19px;">Password:</label>
+        <input type="password" id="password" required>
+
+        <label for="password" style="font-size: 19px;">Confirm Password:</label>
+        <input type="password" id="confirmpassword" required>     
+
+        <button type="submit">Add User</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script src="js/user.js"></script>
+</body>
+</html>

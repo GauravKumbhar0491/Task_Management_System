@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Task</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- FontAwesome for icons (if needed) -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Create a New Task</h1> <!-- Moved inside the container -->
+        <form id="task-form">
+            <!-- Task Title -->
+            <div class="form-group">
+                <label for="title">Task Title:</label>
+                <input type="text" id="title" name="title" placeholder="Enter task title" required>
+            </div>
+
+            <!-- Task Description -->
+            <div class="form-group">
+                <label for="description">Task Description:</label>
+                <textarea id="description" name="description" placeholder="Enter task description"></textarea>
+            </div>
+
+            <!-- Priority -->
+            <div class="form-group">
+                <label for="priority">Priority:</label>
+                <select id="priority" name="priority" required>
+                    <option value="" disabled selected>Select priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+
+            <!-- Deadline -->
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="deadline">
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="" disabled selected>Select status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <!-- Task ID (Read-Only) -->
+            <div class="form-group">
+                <label for="task_id">Task ID:</label>
+                <input type="text" id="task_id" name="task_id" placeholder="Task ID will appear here" readonly>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Add Task</button>
+        </form>
+
+        <!-- Task List to Display Added Tasks -->
+        <div id="task-list"></div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

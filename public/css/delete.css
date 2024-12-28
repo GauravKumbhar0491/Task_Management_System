@@ -1,0 +1,85 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
+    background-attachment: fixed;
+    height: 90vh;
+    background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Display tasks in blocks using flexbox */
+.task-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between task blocks */
+    justify-content: center; /* Align tasks to the left */
+}
+
+/* Task block styling */
+/* Task block styling */
+.task {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: calc(33.33% - 20px); /* Responsive block width (3 blocks per row) */
+    border-radius: 5px;
+    background-color: white;
+    margin: 10px; /* Added margin for spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+
+/* Hover effect on task block */
+.task:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    border-color: #427D9D; /* Border color changes on hover */
+}
+
+/* Style task title */
+.task h3 {
+    margin: 0 0 10px;
+    color: #427D9D;
+    text-align: center;
+}
+
+/* Change title color on hover */
+.task:hover h3 {
+    color: #164863;
+}
+
+button {
+    padding: 11px 15px;
+    margin-top: 10px;
+    background-color: #427D9D;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #164863;
+}
+
+/* Task actions inside task */
+.task-actions {
+    text-align: center;
+    margin-top: auto;
+}
+
+.task-actions button {
+    width: 100%;
+}

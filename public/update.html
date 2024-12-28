@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="css/update.css"> 
+    <!-- Google Fonts for more appealing typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div style="width: 5000%;" class="container">
+        <h1>Update Task</h1>
+        <form id="update-task-form">
+            <label for="update-task-id">Task ID:</label>
+            <div class="input-icon">
+                <i class="fa fa-id-badge"></i>
+                <input type="number" id="update-task-id" required />
+            </div>
+
+            <label for="update-title">Title:</label>
+            <div class="input-icon">
+                <i class="fa fa-tasks"></i>
+                <input type="text" id="update-title" required />
+            </div>
+
+            <label for="update-description">Description:</label>
+            <div class="input-icon">
+                <i class="fa fa-info-circle"></i>
+                <input type="text" id="update-description" required />
+            </div>
+
+            <label for="update-priority">Priority:</label>
+            <select id="update-priority" style="margin-bottom: 5%;" required>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+
+            <label for="update-status">Status:</label>
+            <select id="update-status" style="margin-bottom: 10%;" required>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <button type="submit">Update Task</button>
+        </form>
+
+        <div id="update-result" class="result-message"></div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="js/update.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
