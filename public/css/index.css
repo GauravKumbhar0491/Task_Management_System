@@ -1,4 +1,38 @@
-/* General navigation styling */
+/* General body styling */
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container styles */
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9fbfd;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 600;
+    color: #164863;
+    margin-bottom: 20px;
+}
+
+/* Navigation styling */
 nav {
     text-align: center;
     margin: 20px 0;
@@ -45,5 +79,108 @@ nav {
         text-align: center;
         padding: 12px;
         font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    .container {
+        width: 100%; /* Ensure container is full-width on smaller screens */
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input, select, textarea {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1.6px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    color: #555;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #164863;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0e2b3a;
+}
+
+/* Task List styling */
+#task-list {
+    margin-top: 20px;
+}
+
+.task {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.task h3 {
+    margin: 0;
+}
+
+.task p {
+    margin: 5px 0;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input, select, textarea {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
     }
 }
