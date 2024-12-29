@@ -1,6 +1,7 @@
-/* General body styling */
+/* General page styling */
 body {
     font-family: 'Comic Sans MS', cursive;
+    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,7 +18,6 @@ body {
 .container {
     max-width: 500px;
     margin: auto;
-    background: #ffffff;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
