@@ -1,6 +1,5 @@
 body {
     font-family: 'Comic Sans MS', cursive;
-    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
     background-attachment: fixed;
     height: 90vh;
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
@@ -31,7 +30,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 20px; /* Reduced margin for better spacing */
+    margin: 0 20px;
 }
 
 nav ul li a {
@@ -69,17 +68,17 @@ section {
     width: 250px;
     margin: 10px;
     border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .feature-item:hover {
-    transform: translateY(-5px) scale(1.02); /* Slightly lift and scale */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-    background-color: #f0f8ff; /* Light background color change on hover */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #f0f8ff;
 }
 
 .feature-item h3 {
-    color: #427D9D; /* Color for feature heading */
+    color: #427D9D;
 }
 
 footer {
@@ -91,7 +90,6 @@ footer {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-    /* Adjust navigation items */
     nav ul {
         flex-direction: column; /* Stack items vertically */
         margin: 20px 0;
@@ -101,29 +99,25 @@ footer {
         margin: 10px 0; /* Add margin for spacing between buttons */
     }
 
-    /* Adjust feature items */
     .features {
-        flex-direction: column; /* Stack feature items vertically */
-        align-items: center; /* Center align them */
+        flex-direction: column;
+        align-items: center;
     }
 
     .feature-item {
-        width: 80%; /* Reduce width for smaller screens */
-        margin: 10px 0; /* Adjust margin */
+        width: 80%;
+        margin: 10px 0;
     }
 
-    /* Adjust header padding */
     header {
         padding: 15px;
     }
 
-    /* Adjust the main container */
     .container {
         width: 90%;
         padding: 15px;
     }
 
-    /* Adjust font sizes */
     h1 {
         font-size: 24px;
     }
