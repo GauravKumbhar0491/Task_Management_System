@@ -15,7 +15,13 @@ require('dotenv').config();
 // Middleware
 app.use(bodyParser.json()); // For parsing application/json
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
+app.use(cors(
+    {
+    origin: 'https://task-management-system-amber.vercel.app/', // Replace with your frontend domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+    }
+));
 
 // MySQL Connection
 const db = mysql.createConnection({
