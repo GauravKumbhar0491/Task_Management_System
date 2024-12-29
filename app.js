@@ -9,6 +9,9 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 
+require('dotenv').config();
+
+
 // Middleware
 app.use(bodyParser.json()); // For parsing application/json
 app.use(express.static(path.join(__dirname, 'public')));
@@ -16,10 +19,11 @@ app.use(cors());
 
 // MySQL Connection
 const db = mysql.createConnection({
-    host: '0.0.0.0',
-    user: 'root',
-    password: 'root', // Replace with your MySQL root password
-    database: 'task_manager'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD, // Replace with your MySQL root password
+    database: process.env.DB_DBNAME,
+    port: process.env.DB_PORT
 });
 
 // Connect to MySQL
