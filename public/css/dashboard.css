@@ -25,6 +25,7 @@ nav ul {
     justify-content: center;
     list-style: none;
     padding: 0;
+    flex-wrap: wrap; /* Ensures navigation items wrap on smaller screens */
 }
 
 nav ul li {
@@ -51,7 +52,7 @@ nav ul li a:hover {
 #task-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;  /* Space between tasks */
+    gap: 20px; /* Space between tasks */
     justify-content: center;
 }
 
@@ -59,14 +60,14 @@ nav ul li a:hover {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 15px;
-    width: 250px;  /* Set a fixed width for each task block */
-    height: auto;  /* Automatically adjust height */
+    width: 250px; /* Fixed width for larger screens */
+    height: auto; /* Automatically adjust height */
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition for hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
 }
 
 .task h3 {
@@ -99,11 +100,57 @@ nav ul li a:hover {
 
 /* Hover effect on task block */
 .task:hover {
-    transform: translateY(-10px);  /* Lift the task block slightly */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Stronger shadow on hover */
-    border-color: #427D9D;  /* Change border color on hover */
+    transform: translateY(-10px); /* Lift the task block slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    border-color: #427D9D; /* Change border color on hover */
 }
 
 .task:hover h3 {
-    color: #164863;  /* Change task title color on hover */
+    color: #164863; /* Change task title color on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjust container width for smaller screens */
+    }
+
+    nav ul li {
+        margin: 5px 10px; /* Reduce spacing between navigation items */
+    }
+
+    nav ul li a {
+        padding: 8px 15px; /* Adjust padding for smaller buttons */
+    }
+
+    #task-list {
+        gap: 15px; /* Reduce gap between tasks */
+    }
+
+    .task {
+        width: 90%; /* Make task blocks occupy more width on smaller screens */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Adjust font size of the heading */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Adjust overall font size for very small screens */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center the navigation items */
+    }
+
+    .task {
+        width: 100%; /* Full-width task blocks for very small screens */
+    }
+
+    h1 {
+        font-size: 1.2em; /* Further reduce font size for the heading */
+    }
 }
