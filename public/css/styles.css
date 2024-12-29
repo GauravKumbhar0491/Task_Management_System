@@ -1,94 +1,123 @@
+/* Base styles */
 body {
     font-family: 'Comic Sans MS', cursive;
-    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
-    background-attachment: fixed;
-    height: 90vh;
+    margin: 0;
+    padding: 0;
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-/* h1, h2, p {
-    font-family: 'Comic Sans MS', cursive;
-} */
-
-.container {
-    width: 85%;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-header {
-    text-align: center;
-    padding: 20px;
-    background: linear-gradient(to bottom, #427D9D, #164863);
-    color: white;
-    border-radius: 10px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
+    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
+    background-attachment: fixed;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    margin: 30px 0;
+    align-items: center;
+    flex-direction: column;
 }
 
-nav ul li {
-    margin: 0 50px;
+
+/* Container styles */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9fbfd;
+    color: #333;
+    margin: 20px auto;
 }
 
-nav ul li a {
-    text-decoration: none;
-    padding: 10px 20px;
+/* Heading styles */
+h1 {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1.6px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    color: #555;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
     background-color: #164863;
     color: white;
+    border: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-nav ul li a:hover {
-    background-color: #0e2c3c;
+button:hover {
+    background-color: #0e2b3a;
 }
 
-h2 {
-    margin-top: 60px;
-}
-
-section {
-    text-align: center;
-}
-
-.features {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+/* Task List styling */
+#task-list {
     margin-top: 20px;
 }
 
-.feature-item {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #ddd;
-    padding: 20px;
-    width: 250px;
-    margin: 10px;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition */
+.task {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
-.feature-item:hover {
-    transform: translateY(-5px) scale(1.02); /* Slightly lift and scale */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-    background-color: #f0f8ff; /* Light background color change on hover */
+.task h3 {
+    margin: 0;
 }
 
-.feature-item h3 {
-    color: #427D9D; /* Color for feature heading */
+.task p {
+    margin: 5px 0;
 }
 
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    color: white;
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input, select, textarea {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+    }
 }
