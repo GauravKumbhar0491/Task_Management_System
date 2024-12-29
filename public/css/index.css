@@ -7,9 +7,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-/* h1, h2, p {
-    font-family: 'Comic Sans MS', cursive;
-} */
 
 .container {
     width: 85%;
@@ -34,7 +31,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 50px;
+    margin: 0 20px; /* Reduced margin for better spacing */
 }
 
 nav ul li a {
@@ -90,4 +87,52 @@ footer {
     margin-top: 40px;
     padding: 20px;
     color: white;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Adjust navigation items */
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+        margin: 20px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Add margin for spacing between buttons */
+    }
+
+    /* Adjust feature items */
+    .features {
+        flex-direction: column; /* Stack feature items vertically */
+        align-items: center; /* Center align them */
+    }
+
+    .feature-item {
+        width: 80%; /* Reduce width for smaller screens */
+        margin: 10px 0; /* Adjust margin */
+    }
+
+    /* Adjust header padding */
+    header {
+        padding: 15px;
+    }
+
+    /* Adjust the main container */
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    /* Adjust font sizes */
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .feature-item h3 {
+        font-size: 18px;
+    }
 }
