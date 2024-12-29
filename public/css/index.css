@@ -1,186 +1,93 @@
-/* General page styling */
 body {
     font-family: 'Comic Sans MS', cursive;
     /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
+    background-attachment: fixed;
+    height: 90vh;
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
-    height: 100vh;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
+/* h1, h2, p {
+    font-family: 'Comic Sans MS', cursive;
+} */
 
-/* Container styles */
 .container {
-    max-width: 500px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9fbfd;
-    color: #333;
+    width: 85%;
+    margin: 20px auto;
+    padding: 20px;
 }
 
-h1 {
+header {
     text-align: center;
-    font-weight: 600;
-    color: #164863;
-    margin-bottom: 20px;
+    padding: 20px;
+    background: linear-gradient(to bottom, #427D9D, #164863);
+    color: white;
+    border-radius: 10px;
 }
 
-/* Navigation styling */
-nav {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.navigation {
+nav ul {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between menu items */
-    margin: 0;
+    margin: 30px 0;
 }
 
-.navigation li {
-    display: inline-block;
+nav ul li {
+    margin: 0 50px;
 }
 
-.navigation li a {
+nav ul li a {
     text-decoration: none;
     padding: 10px 20px;
-    background-color: #427D9D;
+    background-color: #164863;
     color: white;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'Comic Sans MS', cursive;
+    border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.navigation li a:hover {
-    background-color: #164863;
-    transform: scale(1.05); /* Slight zoom effect on hover */
+nav ul li a:hover {
+    background-color: #0e2c3c;
 }
 
-/* Responsive adjustments for mobile screens */
-@media only screen and (max-width: 600px) {
-    .navigation {
-        flex-direction: column; /* Stack items vertically */
-        gap: 15px; /* Add spacing between stacked items */
-    }
-
-    .navigation li a {
-        width: 80%; /* Make buttons wider for mobile */
-        text-align: center;
-        padding: 12px;
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
-
-    .container {
-        width: 100%; /* Ensure container is full-width on smaller screens */
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    input, select, textarea {
-        font-size: 14px;
-    }
-
-    button {
-        padding: 12px;
-        font-size: 14px;
-    }
+h2 {
+    margin-top: 60px;
 }
 
-/* Form styles */
-.form-group {
-    margin-bottom: 15px;
+section {
+    text-align: center;
 }
 
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1.6px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-    color: #555;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    background-color: #164863;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0e2b3a;
-}
-
-/* Task List styling */
-#task-list {
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 20px;
 }
 
-.task {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+.feature-item {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    margin: 10px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition */
 }
 
-.task h3 {
-    margin: 0;
+.feature-item:hover {
+    transform: translateY(-5px) scale(1.02); /* Slightly lift and scale */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    background-color: #f0f8ff; /* Light background color change on hover */
 }
 
-.task p {
-    margin: 5px 0;
+.feature-item h3 {
+    color: #427D9D; /* Color for feature heading */
 }
 
-/* Responsive adjustments */
-@media only screen and (max-width: 600px) {
-    .container {
-        width: 100%;
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    input, select, textarea {
-        font-size: 14px;
-    }
-
-    button {
-        padding: 12px;
-        font-size: 14px;
-    }
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: white;
 }
