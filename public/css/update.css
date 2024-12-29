@@ -1,7 +1,6 @@
 /* General page styling */
 body {
     font-family: 'Comic Sans MS', cursive;
-    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -101,4 +100,30 @@ button:hover {
 /* Smooth transition for hover effects */
 button, input, select {
     transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input, select {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 12px;
+    }
 }

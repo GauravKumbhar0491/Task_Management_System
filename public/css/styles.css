@@ -6,7 +6,6 @@ body {
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
     background-attachment: fixed;
     min-height: 100vh;
     display: flex;
@@ -14,7 +13,6 @@ body {
     align-items: center;
     flex-direction: column;
 }
-
 
 /* Container styles */
 .container {
@@ -74,6 +72,7 @@ button {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -103,6 +102,10 @@ button:hover {
 
 /* Responsive adjustments */
 @media only screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
     .container {
         width: 100%;
         padding: 15px;
@@ -118,6 +121,11 @@ button:hover {
 
     button {
         padding: 12px;
+        font-size: 14px;
+    }
+
+    #task-list .task {
+        padding: 8px;
         font-size: 14px;
     }
 }

@@ -2,45 +2,47 @@ body {
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /* background: linear-gradient(to bottom, #edf5f9, #DDF2FD); */
-    height: 90vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
     font-family: 'Comic Sans MS', cursive;
-    /* background-image: url("public/css/Untitled design (1).png");
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 0;
+    margin-bottom: 20px;
     color: #555;
+    font-size: 24px;
 }
 
 .container {
     max-width: 400px;
+    width: 90%; /* Adjusts for smaller screens */
     margin: auto;
     padding: 20px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 label {
     display: block;
     margin-bottom: 8px;
     color: #555;
+    font-size: 14px;
 }
 
 input[type="text"],
 input[type="password"],
 input[type="email"] {
     width: 100%;
-    padding: 10px;
-    font-size: 15px;
-    margin-bottom: 12px;
+    padding: 12px;
+    font-size: 14px;
+    margin-bottom: 15px;
     border: 1.5px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
@@ -48,20 +50,19 @@ input[type="email"] {
 }
 
 button {
-    width: 35%;
+    width: 100%; /* Full width for mobile */
     padding: 12px;
     background-color: #427D9D;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     color: white;
     cursor: pointer;
     text-align: center;
     margin-top: 20px;
-    margin-left: 235px;
     font-family: 'Comic Sans MS', cursive;
-    font-size: 18px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
-
 
 button:hover {
     background-color: #164863;
@@ -71,8 +72,30 @@ button:hover {
     margin-top: 15px;
     text-align: center;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .error {
     color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
 }
