@@ -1,5 +1,6 @@
 body {
     font-family: 'Comic Sans MS', cursive;
+    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
     background-attachment: fixed;
     height: 90vh;
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
@@ -7,11 +8,14 @@ body {
     background-size: cover;
 }
 
+/* h1, h2, p {
+    font-family: 'Comic Sans MS', cursive;
+} */
+
 .container {
     width: 85%;
-    margin: 0 auto; /* This ensures the container is always centered */
+    margin: 20px auto;
     padding: 20px;
-    text-align: center; /* Ensures text is centered */
 }
 
 header {
@@ -31,7 +35,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 20px;
+    margin: 0 50px;
 }
 
 nav ul li a {
@@ -69,17 +73,17 @@ section {
     width: 250px;
     margin: 10px;
     border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition */
 }
 
 .feature-item:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    background-color: #f0f8ff;
+    transform: translateY(-5px) scale(1.02); /* Slightly lift and scale */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    background-color: #f0f8ff; /* Light background color change on hover */
 }
 
 .feature-item h3 {
-    color: #427D9D;
+    color: #427D9D; /* Color for feature heading */
 }
 
 footer {
@@ -87,47 +91,4 @@ footer {
     margin-top: 40px;
     padding: 20px;
     color: white;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column; /* Stack items vertically */
-        margin: 20px 0;
-    }
-
-    nav ul li {
-        margin: 10px 0; /* Add margin for spacing between buttons */
-    }
-
-    .features {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .feature-item {
-        width: 80%;
-        margin: 10px 0;
-    }
-
-    header {
-        padding: 15px;
-    }
-
-    .container {
-        width: 90%;
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    .feature-item h3 {
-        font-size: 18px;
-    }
 }
