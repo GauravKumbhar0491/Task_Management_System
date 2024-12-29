@@ -19,10 +19,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px; /* Space between task blocks */
-    justify-content: center; /* Align tasks to the left */
+    justify-content: center; /* Center-align tasks */
 }
 
-/* Task block styling */
 /* Task block styling */
 .task {
     border: 1px solid #ccc;
@@ -37,7 +36,6 @@ body {
     justify-content: space-between;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
 }
-
 
 /* Hover effect on task block */
 .task:hover {
@@ -82,4 +80,32 @@ button:hover {
 
 .task-actions button {
     width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .task {
+        width: calc(50% - 20px); /* 2 blocks per row for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .task {
+        width: calc(100% - 20px); /* 1 block per row for smaller screens */
+    }
+
+    button {
+        font-size: 14px; /* Adjust button font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%; /* Adjust container width for very small screens */
+    }
+
+    button {
+        padding: 10px; /* Reduce button padding on very small screens */
+        font-size: 13px; /* Further reduce button font size */
+    }
 }
