@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(userId);
     if (!userId) {
         alert('User not logged in!');
-        windows.location.href('/login');
+        windows.location.href ='/login';
         return;
     }
 

@@ -1,15 +1,18 @@
 document.getElementById('search-form').addEventListener('submit', function (event) {
     event.preventDefault();  // Prevent form from submitting the traditional way
 
+    // Get the values from the search form
     const title = document.getElementById('search-title').value;
     const priority = document.getElementById('search-priority').value;
     const status = document.getElementById('search-status').value;
     const userId = document.getElementById('search-user_id').value;
 
+    // Construct the query string
     const query = `?title=${title}&priority=${priority}&status=${status}&user_id=${userId}`;
 
+    // Fetch the search results from the server
     fetch(`/tasks/search${query}`)
-        .then(response => response.json())
+        .then(response => response.json())  // Parse the response into JSON
         .then(tasks => {
             const resultsDiv = document.getElementById('search-results');
             resultsDiv.innerHTML = '';  // Clear previous results
@@ -19,6 +22,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
                 return;
             }
 
+            // Iterate through the tasks and display them
             tasks.forEach(task => {
                 const taskDiv = document.createElement('div');
                 taskDiv.classList.add('task');
@@ -33,5 +37,5 @@ document.getElementById('search-form').addEventListener('submit', function (even
                 resultsDiv.appendChild(taskDiv);
             });
         })
-        .catch(error => console.error('Error fetching search results:', error));
+        .catch(error => console.error('Error fetching search results:', error));  // Error handling
 });

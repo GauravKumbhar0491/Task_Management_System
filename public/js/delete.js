@@ -1,64 +1,3 @@
-// Function to load tasks from the server
-// function loadTasks() {
-//     fetch('http://localhost:3000/tasks')
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-//             return response.json();
-//         })
-//         .then(tasks => {
-//             const taskListDiv = document.getElementById('task-list');
-//             taskListDiv.innerHTML = ''; // Clear previous tasks
-
-//             tasks.forEach(task => {
-//                 const taskDiv = document.createElement('div');
-//                 taskDiv.classList.add('task');
-//                 taskDiv.id = `task-${task.id}`; // Set unique ID for each task
-
-//                 taskDiv.innerHTML = `
-//                     <h3>${task.title}</h3>
-//                     <p>Description: ${task.description}</p>
-//                     <p>Priority: ${task.priority}</p>
-//                     <p>Status: ${task.status}</p>
-//                     <button class="delete-task-button" data-task-id="${task.id}">Delete Task</button>
-//                 `;
-
-//                 taskListDiv.appendChild(taskDiv);
-//             });
-
-//             // Setup delete buttons for each task
-//             setupDeleteButtons();
-//         })
-//         .catch(error => console.error('Error fetching tasks:', error));
-// }
-
-// Function to handle task deletion
-// function setupDeleteButtons() {
-//     document.querySelectorAll('.delete-task-button').forEach(button => {
-//         button.addEventListener('click', function() {
-//             const taskId = this.getAttribute('data-task-id');
-
-//             if (confirm('Are you sure you want to delete this task?')) { // Confirmation prompt
-//                 fetch(`http://localhost:3000/task/${taskId}`, {
-//                     method: 'DELETE',
-//                 })
-//                 .then(response => {
-//                     if (!response.ok) {
-//                         throw new Error('Network response was not ok');
-//                     }
-//                     return response.json();
-//                 })
-//                 .then(data => {
-//                     alert(data.message); // Show success message
-//                     document.getElementById(`task-${taskId}`).remove(); // Remove task from DOM
-//                 })
-//                 .catch(error => console.error('Error deleting task:', error));
-//             }
-//         });
-//     });
-// }
-
 // Load tasks when the button is clicked
 document.getElementById('load-tasks').addEventListener('click', loadTasks);
 
@@ -141,4 +80,3 @@ function setupDeleteButtons() {
         });
     });
 }
-
