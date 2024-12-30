@@ -29,7 +29,9 @@ const db = mysql.createConnection({
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD, // Replace with your MySQL root password
     database: process.env.DB_DBNAME,
-    port: process.env.DB_PORT
+    ssl: {
+        rejectUnauthorized: false // Set this to true if you have a valid certificate
+    }
 });
 
 // Connect to MySQL
