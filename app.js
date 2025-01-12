@@ -12,7 +12,13 @@ const JWT_SECRET = 'H3d$4#1f8jD2X9kA0qPlM$wZ7vE!cGh';
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors()); // Enable CORS for all routes
+app.use(cors(
+    {
+            origin: 'https://task-management-system-amber.vercel.app/', // Replace with your frontend domain
+          methods: ['GET', 'POST', 'PUT', 'DELETE'],
+         credentials: true
+        }
+)); // Enable CORS for all routes
 app.use(express.json());  // This allows your app to handle JSON requests
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname,'templates')));
