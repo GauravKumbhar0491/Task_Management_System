@@ -1,4 +1,5 @@
 const express = require('express');
+const router = express.Router();
 const mysql = require('mysql2');
 const bodyParser = require('body-parser'); // To parse incoming request bodies
 const Joi = require('joi');
@@ -7,21 +8,28 @@ const cors = require('cors');  // Import CORS
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const app = express();
+const JWT_SECRET = 'H3d$4#1f8jD2X9kA0qPlM$wZ7vE!cGh';
 
-require('dotenv').config();
+const app = express();
+app.use(bodyParser.json());
+app.use(cors()); // Enable CORS for all routes
+app.use(express.json());  // This allows your app to handle JSON requests
+// Serve static files from the root directory
+app.use(express.static(path.join(__dirname,'templates')));
+
+dotenv.config();
 
 
 // Middleware
-app.use(bodyParser.json()); // For parsing application/json
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors(
-    {
-    origin: 'https://task-management-system-amber.vercel.app/', // Replace with your frontend domain
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-    }
-));
+// app.use(bodyParser.json()); // For parsing application/json
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(cors(
+//     {
+//     origin: 'https://task-management-system-amber.vercel.app/', // Replace with your frontend domain
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true
+//     }
+// ));
 
 
 const db = mysql.createPool({
