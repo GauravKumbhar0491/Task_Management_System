@@ -17,7 +17,8 @@ app.use(express.json());  // This allows your app to handle JSON requests
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname,'templates')));
 
-dotenv.config();
+require('dotenv').config();
+
 
 
 // Middleware
