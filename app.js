@@ -7,9 +7,9 @@ const Joi = require('joi');
 const path = require('path');
 const cors = require('cors');  // Import CORS
 const bcrypt = require('bcryptjs');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
-// const JWT_SECRET = process.env.JWT_SECRET; // Use JWT secret from .env file
+const JWT_SECRET = process.env.JWT_SECRET; // Use JWT secret from .env file
 
 const app = express();
 app.use(bodyParser.json());
