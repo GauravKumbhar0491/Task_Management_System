@@ -1,44 +1,26 @@
+require('dotenv').config(); // Load environment variables early
+
 const express = require('express');
-const router = express.Router();
 const mysql = require('mysql2');
 const bodyParser = require('body-parser'); // To parse incoming request bodies
 const Joi = require('joi');
 const path = require('path');
 const cors = require('cors');  // Import CORS
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = 'H3d$4#1f8jD2X9kA0qPlM$wZ7vE!cGh';
+// const JWT_SECRET = process.env.JWT_SECRET; // Use JWT secret from .env file
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors(
-    {
-            origin: 'https://task-management-system-amber.vercel.app/', // Replace with your frontend domain
-          methods: ['GET', 'POST', 'PUT', 'DELETE'],
-         credentials: true
-        }
-)); // Enable CORS for all routes
-app.use(express.json());  // This allows your app to handle JSON requests
-// Serve static files from the root directory
-app.use(express.static(path.join(__dirname,'templates')));
+app.use(cors({
+    origin: 'https://task-management-system-amber.vercel.app/', // Replace with your frontend domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+})); // Enable CORS for all routes
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the 'public' directory
 
-require('dotenv').config();
-
-
-
-// Middleware
-// app.use(bodyParser.json()); // For parsing application/json
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.use(cors(
-//     {
-//     origin: 'https://task-management-system-amber.vercel.app/', // Replace with your frontend domain
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     credentials: true
-//     }
-// ));
-
-
+// MySQL connection pool
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -47,19 +29,18 @@ const db = mysql.createPool({
     port: process.env.DB_PORT,
     connectTimeout: 20000,
     connectionLimit: 10 // Adjust based on your needs
-  });
-  
-  db.getConnection((err, connection) => {
+});
+
+db.getConnection((err, connection) => {
     if (err) {
-      console.error('Error connecting to the database:', err);
-      return;
+        console.error('Error connecting to the database:', err);
+        return;
     }
     if (connection) connection.release(); // Release the connection back to the pool
-    console.log('Connected to the MySQL database via connection pool.');
-  });
+    console.log('Connected to the MySQL database via connection pool.');
+});
 
-
-// Define the task validation schema
+// Task schema validation
 const taskSchema = Joi.object({
     user_id: Joi.number().integer().required(),
     title: Joi.string().min(3).max(255).required(),
@@ -84,10 +65,9 @@ app.get('/tasks', (req, res) => {
 
 // Add a new task
 app.post('/task', (req, res) => {
-    // Validate the request body against the taskSchema
+    // Validate the request body
     const { error } = taskSchema.validate(req.body);
 
-    // If there's an error, return a 400 Bad Request with the error message
     if (error) {
         return res.status(400).json({ message: error.details[0].message });
     }
@@ -111,7 +91,6 @@ app.post('/task', (req, res) => {
         res.json({ message: 'Task added', taskId: result.insertId });
     });
 });
-
 
 // Update a task
 app.put('/task/:id', (req, res) => {
@@ -142,7 +121,6 @@ app.put('/task/:id', (req, res) => {
     });
 });
 
-
 // Delete a task
 app.delete('/task/:id', (req, res) => {
     const taskId = req.params.id;
@@ -170,8 +148,7 @@ app.delete('/task/:id', (req, res) => {
     });
 });
 
-
-//Search for tasks
+// Search for tasks
 app.get('/tasks/search', (req, res) => {
     const { title, priority, status, user_id } = req.query;
 
@@ -200,7 +177,7 @@ app.get('/tasks/search', (req, res) => {
     });
 });
 
-// Add a new user
+// Add a new user with duplicate check
 app.post('/user', async (req, res) => {
     const { username, password, email } = req.body;
 
@@ -209,20 +186,28 @@ app.post('/user', async (req, res) => {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // const newUser = { username, hashedPassword, email };
-    
-    const sql = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
-
-    db.query(sql, [username, hashedPassword, email], (err, result) => {
+    // Check if username or email already exists
+    const checkUserSql = 'SELECT * FROM users WHERE username = ? OR email = ?';
+    db.query(checkUserSql, [username, email], async (err, results) => {
         if (err) {
-            console.error('Error adding user:', err);
-            return res.status(500).json({ message: 'Internal Server Error' });
+            return res.status(500).json({ message: 'Error checking for existing user' });
         }
-        // Send back the user ID along with the success message
-        res.json({ message: 'User added', userId: result.insertId });
+        if (results.length > 0) {
+            return res.status(400).json({ message: 'Username or email already exists' });
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const sql = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
+
+        db.query(sql, [username, hashedPassword, email], (err, result) => {
+            if (err) {
+                console.error('Error adding user:', err);
+                return res.status(500).json({ message: 'Internal Server Error' });
+            }
+            res.json({ message: 'User added', userId: result.insertId });
+        });
     });
 });
 
@@ -237,23 +222,19 @@ app.post('/login', async (req, res) => {
             return res.status(500).json({ message: 'Internal Server Error' });
         }
 
-        // console.log(results);
-
         if (results.length === 0) {
             return res.status(401).json({ message: 'Invalid username or password' });
         }
 
         const user = results[0];
-        // console.log(user);
         const match = await bcrypt.compare(password, user.password);
-        // console.log({match});
 
         if (!match) {
             return res.status(401).json({ message: 'Invalid username or password' });
         }
 
         // Create JWT token
-        const token = jwt.sign({ id: user.id }, 'your_jwt_secret', { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '1h' });
         res.json({ token, userId: user.id, message: 'Login successful' });
     });
 });
@@ -261,7 +242,7 @@ app.post('/login', async (req, res) => {
 // Fetch tasks for a specific user
 app.get('/tasks/user/:userId', (req, res) => {
     const userId = req.params.userId;
-    
+
     const sql = 'SELECT * FROM tasks WHERE user_id = ?';
 
     db.query(sql, [userId], (err, results) => {
@@ -273,39 +254,40 @@ app.get('/tasks/user/:userId', (req, res) => {
     });
 });
 
+// Serve static HTML pages
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname,'public','index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.get('/user', (req, res) => {
-    res.sendFile(path.join(__dirname,'public','user.html'));
+    res.sendFile(path.join(__dirname, 'public', 'user.html'));
 });
 
 app.get('/create', (req, res) => {
-    res.sendFile(path.join(__dirname,'public','create.html'));
+    res.sendFile(path.join(__dirname, 'public', 'create.html'));
 });
 
 app.get('/dashboard', (req, res) => {
-    res.sendFile(path.join(__dirname,'public','dashboard.html'));
+    res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
 app.get('/delete', (req, res) => {
-    res.sendFile(path.join(__dirname,'public','delete.html'));
+    res.sendFile(path.join(__dirname, 'public', 'delete.html'));
 });
 
-app.get('/login', async (req, res) => {
-    res.sendFile(path.join(__dirname,'public','login.html'));
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
 app.get('/search', (req, res) => {
-    res.sendFile(path.join(__dirname,'public','search.html'));
+    res.sendFile(path.join(__dirname, 'public', 'search.html'));
 });
 
 app.get('/update', (req, res) => {
-    res.sendFile(path.join(__dirname,'public','update.html'));
+    res.sendFile(path.join(__dirname, 'public', 'update.html'));
 });
 
 // Start the server
-app.listen(3000, '::',() => {
+app.listen(3000, '::', () => {
     console.log('Server is running on port 3000');
 });
