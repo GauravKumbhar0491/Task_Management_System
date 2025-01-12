@@ -23,25 +23,25 @@ app.use(cors(
     }
 ));
 
-// MySQL Connection
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD, // Replace with your MySQL root password
-    database: process.env.DB_DBNAME,
-    ssl: {
-        rejectUnauthorized: false // Set this to true if you have a valid certificate
-    }
-});
 
-// Connect to MySQL
-db.connect((err) => {
+const db = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
+    connectionLimit: 10, // Adjust based on your needs
+  });
+  
+  db.getConnection((err, connection) => {
     if (err) {
-        console.error('Error connecting to MySQL:', err);
-        return;
+      console.error('Error connecting to the database:', err);
+      return;
     }
-    console.log('Connected to MySQL');
-});
+    if (connection) connection.release(); // Release the connection back to the pool
+    console.log('Connected to the MySQL database via connection pool.');
+  });
+
 
 // Define the task validation schema
 const taskSchema = Joi.object({
