@@ -6,40 +6,45 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Comic Sans MS', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
     text-align: center;
-    margin-top: 50px;
-    color: #555;
     font-size: 28px;
+    color: #555;
+    margin-top: 50px;
 }
 
 .container {
-    max-width: 400px;
-    margin: 60px auto;
-    padding: 20px;
+    width: 80%;
+    max-width: 700px; /* Increased width */
+    padding: 30px; /* Increased padding */
     background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 19px;
     color: #555;
+    margin-bottom: 8px;
 }
 
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 10px;
-    font-size: 14px;
+    padding: 12px; /* Increased padding */
+    font-size: 16px;
     border: 1.5px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
@@ -48,15 +53,15 @@ input[type="password"] {
 
 button {
     width: 100%;
-    padding: 12px;
+    padding: 15px; /* Increased padding */
     background-color: #427D9D;
     border: none;
     border-radius: 8px;
     color: white;
     cursor: pointer;
     font-family: 'Comic Sans MS', cursive;
-    font-size: 16px;
-    margin-top: 15px;
+    font-size: 18px;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -69,22 +74,29 @@ button:hover {
     font-weight: bold;
 }
 
+.error {
+    color: red;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 600px) {
     h1 {
-        font-size: 22px;
+        font-size: 26px; /* Slightly smaller but still readable */
     }
 
     .container {
-        padding: 15px;
+        width: 90%;
+        padding: 25px; /* Adjusted padding */
     }
 
     input[type="text"],
     input[type="password"] {
-        font-size: 13px;
+        font-size: 18px; /* Increased font size */
+        padding: 15px; /* Increased padding */
     }
 
     button {
-        font-size: 14px;
+        font-size: 18px; /* Adjusted font size */
+        padding: 18px; /* Increased padding */
     }
 }
