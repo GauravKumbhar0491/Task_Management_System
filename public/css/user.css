@@ -1,28 +1,35 @@
 body {
     font-family: 'Comic Sans MS', cursive;
     background-attachment: fixed;
-    height: 90vh;
+    height: 100vh; /* Use full viewport height */
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
     padding: 0;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 h1 {
     text-align: center;
-    margin-top: 50px;
     color: #555;
     font-size: 28px;
+    position: absolute; /* Make h1 absolute so it's not part of the flex container */
+    top: 50px; /* Adjust top margin for spacing */
+    width: 100%;
 }
 
+/* Container for the form */
 .container {
     width: 100%;
     max-width: 450px; /* Limit the max width */
-    margin: auto;
     padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Form styling */
 form {
     width: 100%;
     padding: 20px;
