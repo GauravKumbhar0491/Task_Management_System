@@ -32,7 +32,7 @@ h1 {
 /* Form styling */
 form {
     width: 100%;
-    padding: 20px;
+    padding: 25px; /* Increased padding for larger form on mobile */
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -107,11 +107,12 @@ button:hover {
     }
 
     form {
-        padding: 20px;
+        padding: 30px; /* Increased form padding for more space */
+        width: 90%; /* Ensure form takes more width on smaller devices */
     }
 
     button {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
@@ -121,7 +122,8 @@ button:hover {
     }
 
     form {
-        padding: 15px;
+        padding: 35px; /* Further increased padding for more spacious form */
+        width: 90%; /* Make form take up more width */
     }
 
     button {
