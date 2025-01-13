@@ -8,16 +8,16 @@ body {
     margin: 0;
     padding: 0;
     display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack h1 and form vertically */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
 }
 
 h1 {
-    text-align: center;
     color: #555;
     font-size: 28px;
-    position: absolute; /* Make h1 absolute so it's not part of the flex container */
-    top: 50px; /* Adjust top margin for spacing */
+    margin-bottom: 20px; /* Add margin below the h1 to space it from the form */
+    text-align: center;
     width: 100%;
 }
 
