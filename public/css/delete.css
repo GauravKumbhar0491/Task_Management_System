@@ -1,6 +1,5 @@
 body {
     font-family: 'Comic Sans MS', cursive;
-    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
     background-attachment: fixed;
     height: 90vh;
     background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
@@ -14,44 +13,39 @@ body {
     padding: 20px;
 }
 
-/* Display tasks in blocks using flexbox */
 .task-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Space between task blocks */
-    justify-content: center; /* Center-align tasks */
+    gap: 20px;
+    justify-content: center;
 }
 
-/* Task block styling */
 .task {
     border: 1px solid #ccc;
     padding: 20px;
-    width: calc(33.33% - 20px); /* Responsive block width (3 blocks per row) */
+    width: calc(33.33% - 20px);
     border-radius: 5px;
     background-color: white;
-    margin: 10px; /* Added margin for spacing */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect on task block */
 .task:hover {
-    transform: translateY(-10px); /* Slight lift on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-    border-color: #427D9D; /* Border color changes on hover */
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: #427D9D;
 }
 
-/* Style task title */
 .task h3 {
     margin: 0 0 10px;
     color: #427D9D;
     text-align: center;
 }
 
-/* Change title color on hover */
 .task:hover h3 {
     color: #164863;
 }
@@ -72,7 +66,6 @@ button:hover {
     background-color: #164863;
 }
 
-/* Task actions inside task */
 .task-actions {
     text-align: center;
     margin-top: auto;
@@ -82,30 +75,29 @@ button:hover {
     width: 100%;
 }
 
-/* Responsive Styles */
 @media (max-width: 1024px) {
     .task {
-        width: calc(50% - 20px); /* 2 blocks per row for tablets */
+        width: calc(50% - 20px);
     }
 }
 
 @media (max-width: 768px) {
     .task {
-        width: calc(100% - 20px); /* 1 block per row for smaller screens */
+        width: calc(100% - 20px);
     }
 
     button {
-        font-size: 14px; /* Adjust button font size for smaller screens */
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        width: 90%; /* Adjust container width for very small screens */
+        width: 90%;
     }
 
     button {
-        padding: 10px; /* Reduce button padding on very small screens */
-        font-size: 13px; /* Further reduce button font size */
+        padding: 10px;
+        font-size: 13px;
     }
 }
