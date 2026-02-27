@@ -1,104 +1,29 @@
-/* General page styling */
-body {
-    font-family: 'Comic Sans MS', cursive;
-    /* background: linear-gradient(to bottom, #e1f2fb, #a7c4cc); */
-    background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100vh;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* update.css — page-specific overrides for update.html */
+
+/* Accent on save button when form is "dirty" via JS class */
+.form-dirty .btn-primary {
+    box-shadow: 0 8px 28px rgba(99, 102, 241, 0.55);
 }
 
-.container {
-    max-width: 500px;
-    margin: auto;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9fbfd;
-    color: #333;
+/* Task ID field — highlight focus blue */
+#update-task-id:focus {
+    border-color: rgba(6, 182, 212, 0.6);
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.12);
 }
 
-h1 {
-    text-align: center;
-    font-weight: 600;
-    color: #164863;
-    margin-bottom: 20px;
+/* Subtle top glow on form card */
+.form-card {
+    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-label {
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-.input-icon {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.input-icon i {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #555;
-}
-
-input, select {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    padding: 10px 10px 10px 35px;
-    border: 1.6px solid #ccc;
-    border-radius: 8px;
-    width: 100%;
-    outline: none;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-input:focus, select:focus {
-    border-color: #164863;
-}
-
-select {
-    padding-left: 10px;
-}
-
-button {
-    font-family: 'Poppins', sans-serif;
-    padding: 15px;
-    background-color: #164863;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0e2b3a;
-}
-
-.result-message {
-    margin-top: 20px;
-    text-align: center;
-    color: #164863;
-}
-
-/* Smooth transition for hover effects */
-button, input, select {
-    transition: all 0.3s ease;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

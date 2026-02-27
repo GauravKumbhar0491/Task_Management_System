@@ -1,31 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Add New User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account – TaskFlow</title>
+    <meta name="description" content="Create your free TaskFlow account and start managing tasks smarter today.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/user.css">
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Sign Up</h1>
-    <form id="user-form" style="margin: 60px auto; width: 650px;">
-        <label for="email" style="font-size: 19px;">Email:</label>
-        <input type="email" id="email" required>
 
-        <label for="username" style="font-size: 19px;">Username:</label>
-        <input type="text" id="username" required>
+    <!-- Animated background orbs -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
-        <label for="password" style="font-size: 19px;">Password:</label>
-        <input type="password" id="password" required>
+    <!-- Back link -->
+    <a href="index.html" class="back-link" id="back-home">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
 
-        <label for="password" style="font-size: 19px;">Confirm Password:</label>
-        <input type="password" id="confirmpassword" required>     
+    <!-- Auth card -->
+    <div class="auth-wrapper">
+        <!-- Left panel -->
+        <div class="auth-panel panel-left">
+            <div class="panel-brand">
+                <span class="brand-icon"><i class="fas fa-check-double"></i></span>
+                <span class="brand-name">TaskFlow</span>
+            </div>
+            <h2 class="panel-headline">Start your journey <br>to peak productivity.</h2>
+            <p class="panel-sub">Join thousands of users who organize smarter and deliver faster with TaskFlow.</p>
+            <div class="panel-features">
+                <div class="pfeat"><i class="fas fa-star"></i> Free forever, no credit card</div>
+                <div class="pfeat"><i class="fas fa-rocket"></i> Set up in under 60 seconds</div>
+                <div class="pfeat"><i class="fas fa-users"></i> Collaborate with your team</div>
+            </div>
+        </div>
 
-        <button type="submit">Add User</button>
-    </form>
+        <!-- Right panel – form -->
+        <div class="auth-panel panel-right">
+            <div class="form-card">
+                <div class="form-header">
+                    <h1>Create Account</h1>
+                    <p>Already have an account? <a href="login.html" id="switch-login">Sign in</a></p>
+                </div>
 
-    <div id="result"></div>
+                <form id="user-form" novalidate>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="email" placeholder="you@example.com" required autocomplete="email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="username" placeholder="Choose a username" required
+                                autocomplete="username">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="password" placeholder="Create a password" required
+                                autocomplete="new-password">
+                            <button type="button" class="toggle-pwd" id="togglePwd"
+                                aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmpassword">Confirm Password</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-shield-halved input-icon"></i>
+                            <input type="password" id="confirmpassword" placeholder="Repeat your password" required
+                                autocomplete="new-password">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="register-btn">
+                        <span>Create Account</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div id="result" class="form-result"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/user.js"></script>
+    <script>
+        // Password toggle
+        const togglePwd = document.getElementById('togglePwd');
+        const pwdInput = document.getElementById('password');
+        togglePwd.addEventListener('click', () => {
+            const isText = pwdInput.type === 'text';
+            pwdInput.type = isText ? 'password' : 'text';
+            togglePwd.querySelector('i').className = isText ? 'fas fa-eye' : 'fas fa-eye-slash';
+        });
+    </script>
 </body>
+
 </html>

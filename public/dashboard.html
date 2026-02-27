@@ -1,33 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashboard.css"> <!-- Add your CSS file link -->
+    <title>Dashboard – TaskFlow</title>
+    <meta name="description" content="View and manage all your tasks in the TaskFlow dashboard.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
-<body>
-    <h1>User Dashboard</h1>
-    <div class="container">
-        <!-- Navigation Tabs -->
-        <nav>
-            <ul>
-                <li><a href="create.html">Create Task</a></li>
-                <li><a href="update.html">Update Task</a></li>
-                <li><a href="delete.html">Remove Task</a></li>
-                <li><a href="search.html">Search Task</a></li>
-                <li><a href="index.html" id="logout-btn">Logout</a></li> <!-- Logout Tab -->
-            </ul>
-        </nav>
-        
-        <!-- Task List Section -->
-        <section id="task-list-section">
-            <h2 style="color: #555;">Your Tasks</h2>
-            <div id="task-list"></div> <!-- Task list will be populated here -->
-        </section>
-    </div>
 
-    <script src="js/dashboard.js"></script> <!-- Add your JS file link -->
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="sidebar-brand">
+            <span class="brand-icon"><i class="fas fa-check-double"></i></span>
+            <span class="brand-name">TaskFlow</span>
+        </a>
+        <nav class="sidebar-nav">
+            <span class="nav-section-label">Overview</span>
+            <a href="dashboard.html" class="nav-item active" id="nav-dashboard">
+                <i class="fas fa-grid-2"></i> Dashboard
+            </a>
+            <div class="nav-divider"></div>
+            <span class="nav-section-label">Tasks</span>
+            <a href="create.html" class="nav-item" id="nav-create">
+                <i class="fas fa-plus-circle"></i> Create Task
+            </a>
+            <a href="update.html" class="nav-item" id="nav-update">
+                <i class="fas fa-pen-to-square"></i> Update Task
+            </a>
+            <a href="delete.html" class="nav-item" id="nav-delete">
+                <i class="fas fa-trash-can"></i> Remove Task
+            </a>
+            <a href="search.html" class="nav-item" id="nav-search">
+                <i class="fas fa-magnifying-glass"></i> Search Tasks
+            </a>
+            <div class="nav-divider"></div>
+            <a href="index.html" class="nav-item danger" id="logout-btn">
+                <i class="fas fa-right-from-bracket"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle sidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="topbar-left">
+            <span class="topbar-title">Dashboard</span>
+            <span class="topbar-sub">All your tasks at a glance</span>
+        </div>
+        <div class="topbar-right">
+            <span class="topbar-badge" id="task-count-badge">0 tasks</span>
+            <a href="create.html" class="btn btn-primary" id="new-task-btn"
+                style="padding:8px 16px; font-size:0.82rem;">
+                <i class="fas fa-plus"></i> New Task
+            </a>
+            <div class="avatar" title="Profile">T</div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Stats row -->
+        <div class="stats-row" id="stats-row">
+            <div class="stat-card">
+                <div class="stat-icon" style="background:rgba(99,102,241,0.15); color:#a5b4fc;">
+                    <i class="fas fa-list-check"></i>
+                </div>
+                <div class="stat-val" id="stat-total">0</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background:rgba(245,158,11,0.15); color:#fbbf24;">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <div class="stat-val" id="stat-pending">0</div>
+                <div class="stat-label">Pending</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background:rgba(99,102,241,0.15); color:#818cf8;">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="stat-val" id="stat-inprogress">0</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background:rgba(16,185,129,0.15); color:#6ee7b7;">
+                    <i class="fas fa-circle-check"></i>
+                </div>
+                <div class="stat-val" id="stat-done">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+        </div>
+
+        <!-- Page header -->
+        <div class="page-header">
+            <div>
+                <h1>Your Tasks</h1>
+                <p>Manage and track all your tasks below</p>
+            </div>
+            <a href="create.html" class="btn btn-primary" id="header-new-btn">
+                <i class="fas fa-plus"></i> Add Task
+            </a>
+        </div>
+
+        <!-- Task grid -->
+        <div class="tasks-grid" id="task-list">
+            <div class="empty-state">
+                <i class="fas fa-inbox"></i>
+                <p>No tasks yet. <a href="create.html"
+                        style="color:#a5b4fc; text-decoration:none; font-weight:600;">Create your first task →</a></p>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/dashboard.js"></script>
+    <script>
+        // Mobile sidebar toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+    </script>
 </body>
+
 </html>

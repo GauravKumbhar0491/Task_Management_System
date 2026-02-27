@@ -1,29 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <title>Sign In – TaskFlow</title>
+    <meta name="description" content="Sign in to your TaskFlow account to manage your tasks and boost productivity.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
-<body>
-    <h1>User Login</h1>
 
-    <div class="container">
-        <form id="login-form">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" placeholder="Enter your Username" style="width: 96.5%;" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" placeholder="Enter your Password" style="width: 99%; height: 36.5px; font-family: 'Comic Sans MS', cursive;">
-            </div>
-            <button type="submit">Login</button>
-        </form>
-        <div id="login-result"></div>
+<body>
+
+    <!-- Animated background orbs -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
+
+    <!-- Back link -->
+    <a href="index.html" class="back-link" id="back-home">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <!-- Auth card -->
+    <div class="auth-wrapper">
+        <!-- Left panel -->
+        <div class="auth-panel panel-left">
+            <div class="panel-brand">
+                <span class="brand-icon"><i class="fas fa-check-double"></i></span>
+                <span class="brand-name">TaskFlow</span>
+            </div>
+            <h2 class="panel-headline">Welcome back! <br>Ready to get things done?</h2>
+            <p class="panel-sub">Sign in and pick up right where you left off. Your tasks are waiting.</p>
+            <div class="panel-features">
+                <div class="pfeat"><i class="fas fa-bolt"></i> Real-time task tracking</div>
+                <div class="pfeat"><i class="fas fa-shield-halved"></i> Secure &amp; private</div>
+                <div class="pfeat"><i class="fas fa-layer-group"></i> All your work in one place</div>
+            </div>
+        </div>
+
+        <!-- Right panel – form -->
+        <div class="auth-panel panel-right">
+            <div class="form-card">
+                <div class="form-header">
+                    <h1>Sign In</h1>
+                    <p>Don't have an account? <a href="user.html" id="switch-register">Create one</a></p>
+                </div>
+
+                <form id="login-form" novalidate>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="username" placeholder="Enter your username" required
+                                autocomplete="username">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="password" placeholder="Enter your password" required
+                                autocomplete="current-password">
+                            <button type="button" class="toggle-pwd" id="togglePwd"
+                                aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="login-btn">
+                        <span>Sign In</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div id="login-result" class="form-result"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/login.js"></script>
+    <script>
+        // Password toggle
+        const togglePwd = document.getElementById('togglePwd');
+        const pwdInput = document.getElementById('password');
+        togglePwd.addEventListener('click', () => {
+            const isText = pwdInput.type === 'text';
+            pwdInput.type = isText ? 'password' : 'text';
+            togglePwd.querySelector('i').className = isText ? 'fas fa-eye' : 'fas fa-eye-slash';
+        });
+    </script>
 </body>
+
 </html>

@@ -1,52 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager - Search</title>
-    <!-- Optional for styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/search.css"> 
+    <title>Search Tasks – TaskFlow</title>
+    <meta name="description" content="Search and filter tasks in TaskFlow by title, priority, status, or user ID.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/search.css">
 </head>
+
 <body>
-    <h1>Search Tasks</h1>
-    
-    <form id="search-form" style="width: 650px; margin: 50px auto;">
-        <div class="form-group">
-            <label for="search-title">Title:</label>
-            <input type="text" id="search-title" name="title" placeholder="Search by title" style="width: 97%;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="sidebar-brand">
+            <span class="brand-icon"><i class="fas fa-check-double"></i></span>
+            <span class="brand-name">TaskFlow</span>
+        </a>
+        <nav class="sidebar-nav">
+            <span class="nav-section-label">Overview</span>
+            <a href="dashboard.html" class="nav-item" id="nav-dashboard">
+                <i class="fas fa-grid-2"></i> Dashboard
+            </a>
+            <div class="nav-divider"></div>
+            <span class="nav-section-label">Tasks</span>
+            <a href="create.html" class="nav-item" id="nav-create">
+                <i class="fas fa-plus-circle"></i> Create Task
+            </a>
+            <a href="update.html" class="nav-item" id="nav-update">
+                <i class="fas fa-pen-to-square"></i> Update Task
+            </a>
+            <a href="delete.html" class="nav-item" id="nav-delete">
+                <i class="fas fa-trash-can"></i> Remove Task
+            </a>
+            <a href="search.html" class="nav-item active" id="nav-search">
+                <i class="fas fa-magnifying-glass"></i> Search Tasks
+            </a>
+            <div class="nav-divider"></div>
+            <a href="index.html" class="nav-item danger">
+                <i class="fas fa-right-from-bracket"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle sidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="topbar-left">
+            <span class="topbar-title">Search Tasks</span>
+            <span class="topbar-sub">Filter by title, priority, status or user</span>
+        </div>
+        <div class="topbar-right">
+            <div class="avatar">T</div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="page-header">
+            <div>
+                <h1>Search Tasks</h1>
+                <p>Use the filters below to quickly find the tasks you need</p>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="search-priority">Priority:</label>
-            <select id="search-priority" name="priority" style="font-family: 'Comic Sans MS', cursive;">
-                <option value="">Select priority</option>
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-            </select>
+        <!-- Search form card -->
+        <div class="form-card" id="search-form-card">
+            <form id="search-form" novalidate>
+
+                <div class="form-group">
+                    <label for="search-title">Task Title</label>
+                    <input type="text" id="search-title" name="title" placeholder="Search by title keyword...">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="search-priority">Priority</label>
+                        <select id="search-priority" name="priority">
+                            <option value="">All Priorities</option>
+                            <option value="Low">🟢 Low</option>
+                            <option value="Medium">🟡 Medium</option>
+                            <option value="High">🔴 High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="search-status">Status</label>
+                        <select id="search-status" name="status">
+                            <option value="">All Statuses</option>
+                            <option value="Pending">⏳ Pending</option>
+                            <option value="In Progress">🔄 In Progress</option>
+                            <option value="Completed">✅ Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="search-user_id">User ID</label>
+                    <input type="number" id="search-user_id" name="user_id" placeholder="Filter by user ID (optional)">
+                </div>
+
+                <div style="display:flex; gap:10px;">
+                    <button type="submit" class="btn btn-primary btn-full" id="search-btn">
+                        <i class="fas fa-magnifying-glass"></i> Search Tasks
+                    </button>
+                    <button type="reset" class="btn btn-ghost" id="reset-btn" style="min-width:110px;">
+                        <i class="fas fa-xmark"></i> Clear
+                    </button>
+                </div>
+            </form>
         </div>
 
-        <div class="form-group">
-            <label for="search-status">Status:</label>
-            <select id="search-status" name="status" style="font-family: 'Comic Sans MS', cursive;">
-                <option value="">Select status</option>
-                <option value="Pending">Pending</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Completed">Completed</option>
-            </select>
-        </div>
+        <!-- Results -->
+        <div id="search-results" class="tasks-grid" style="margin-top:24px;"></div>
 
-        <div class="form-group">
-            <label for="search-user_id">User ID:</label>
-            <input type="number" id="search-user_id" name="user_id" placeholder="Search by user ID" style="width: 97%;">
-        </div>
+    </main>
 
-        <button type="submit">Search Tasks</button>
-    </form>
-
-    <div id="search-results"></div>
-
-    <script src="js/script.js"></script> <!-- Link to your JavaScript file -->
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+    </script>
 </body>
+
 </html>

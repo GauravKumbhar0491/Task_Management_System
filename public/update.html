@@ -1,58 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Task</title>
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="css/update.css"> 
-    <!-- Google Fonts for more appealing typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <title>Update Task – TaskFlow</title>
+    <meta name="description" content="Update an existing task in TaskFlow.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/update.css">
 </head>
+
 <body>
-    <div style="width: 5000%;" class="container">
-        <h1>Update Task</h1>
-        <form id="update-task-form">
-            <label for="update-task-id">Task ID:</label>
-            <div class="input-icon">
-                <i class="fa fa-id-badge"></i>
-                <input type="number" id="update-task-id" required />
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="sidebar-brand">
+            <span class="brand-icon"><i class="fas fa-check-double"></i></span>
+            <span class="brand-name">TaskFlow</span>
+        </a>
+        <nav class="sidebar-nav">
+            <span class="nav-section-label">Overview</span>
+            <a href="dashboard.html" class="nav-item" id="nav-dashboard">
+                <i class="fas fa-grid-2"></i> Dashboard
+            </a>
+            <div class="nav-divider"></div>
+            <span class="nav-section-label">Tasks</span>
+            <a href="create.html" class="nav-item" id="nav-create">
+                <i class="fas fa-plus-circle"></i> Create Task
+            </a>
+            <a href="update.html" class="nav-item active" id="nav-update">
+                <i class="fas fa-pen-to-square"></i> Update Task
+            </a>
+            <a href="delete.html" class="nav-item" id="nav-delete">
+                <i class="fas fa-trash-can"></i> Remove Task
+            </a>
+            <a href="search.html" class="nav-item" id="nav-search">
+                <i class="fas fa-magnifying-glass"></i> Search Tasks
+            </a>
+            <div class="nav-divider"></div>
+            <a href="index.html" class="nav-item danger">
+                <i class="fas fa-right-from-bracket"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle sidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="topbar-left">
+            <span class="topbar-title">Update Task</span>
+            <span class="topbar-sub">Edit your task details</span>
+        </div>
+        <div class="topbar-right">
+            <a href="dashboard.html" class="btn btn-ghost" style="padding:8px 16px; font-size:0.82rem;">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            <div class="avatar">T</div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="page-header">
+            <div>
+                <h1>Update Task</h1>
+                <p>Enter the Task ID to load and modify an existing task</p>
             </div>
+        </div>
 
-            <label for="update-title">Title:</label>
-            <div class="input-icon">
-                <i class="fa fa-tasks"></i>
-                <input type="text" id="update-title" required />
-            </div>
+        <div class="form-card">
+            <form id="update-task-form" novalidate>
 
-            <label for="update-description">Description:</label>
-            <div class="input-icon">
-                <i class="fa fa-info-circle"></i>
-                <input type="text" id="update-description" required />
-            </div>
+                <div class="form-group">
+                    <label for="update-task-id">Task ID</label>
+                    <input type="number" id="update-task-id" placeholder="Enter the task ID to update" required>
+                </div>
 
-            <label for="update-priority">Priority:</label>
-            <select id="update-priority" style="margin-bottom: 5%;" required>
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-            </select>
+                <div class="form-group">
+                    <label for="update-title">Task Title</label>
+                    <input type="text" id="update-title" placeholder="Updated task title" required>
+                </div>
 
-            <label for="update-status">Status:</label>
-            <select id="update-status" style="margin-bottom: 10%;" required>
-                <option value="Pending">Pending</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Completed">Completed</option>
-            </select>
+                <div class="form-group">
+                    <label for="update-description">Description</label>
+                    <textarea id="update-description" placeholder="Updated task description..." required></textarea>
+                </div>
 
-            <button type="submit">Update Task</button>
-        </form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="update-priority">Priority</label>
+                        <select id="update-priority" required>
+                            <option value="Low">🟢 Low</option>
+                            <option value="Medium">🟡 Medium</option>
+                            <option value="High">🔴 High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-status">Status</label>
+                        <select id="update-status" required>
+                            <option value="Pending">⏳ Pending</option>
+                            <option value="In Progress">🔄 In Progress</option>
+                            <option value="Completed">✅ Completed</option>
+                        </select>
+                    </div>
+                </div>
 
-        <div id="update-result" class="result-message"></div>
-    </div>
+                <button type="submit" class="btn btn-primary btn-full" id="update-task-btn">
+                    <i class="fas fa-floppy-disk"></i> Save Changes
+                </button>
+            </form>
 
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="js/update.js"></script> <!-- Link to your JavaScript file -->
+            <div id="update-result" class="result-msg" style="margin-top:16px;"></div>
+        </div>
+    </main>
+
+    <script src="js/update.js"></script>
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+    </script>
 </body>
+
 </html>

@@ -1,20 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Task Manager</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/delete.css"> <!-- Link to your CSS file -->
-</head>
-<body >
-    <div class="container">
-        <h1 style="text-align: center;">Task Manager</h1>
-        <!-- Container for tasks -->
-        <div class="task-container" id="task-list"></div> <!-- Use task-container class -->
-        <button id="load-tasks">Load Tasks</button>
-    </div>
 
-    <!-- Link to your JavaScript file -->
-    <script src="js/delete.js"></script> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Task – TaskFlow</title>
+    <meta name="description" content="Delete tasks from your TaskFlow task list.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/delete.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="sidebar-brand">
+            <span class="brand-icon"><i class="fas fa-check-double"></i></span>
+            <span class="brand-name">TaskFlow</span>
+        </a>
+        <nav class="sidebar-nav">
+            <span class="nav-section-label">Overview</span>
+            <a href="dashboard.html" class="nav-item" id="nav-dashboard">
+                <i class="fas fa-grid-2"></i> Dashboard
+            </a>
+            <div class="nav-divider"></div>
+            <span class="nav-section-label">Tasks</span>
+            <a href="create.html" class="nav-item" id="nav-create">
+                <i class="fas fa-plus-circle"></i> Create Task
+            </a>
+            <a href="update.html" class="nav-item" id="nav-update">
+                <i class="fas fa-pen-to-square"></i> Update Task
+            </a>
+            <a href="delete.html" class="nav-item active" id="nav-delete">
+                <i class="fas fa-trash-can"></i> Remove Task
+            </a>
+            <a href="search.html" class="nav-item" id="nav-search">
+                <i class="fas fa-magnifying-glass"></i> Search Tasks
+            </a>
+            <div class="nav-divider"></div>
+            <a href="index.html" class="nav-item danger">
+                <i class="fas fa-right-from-bracket"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle sidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="topbar-left">
+            <span class="topbar-title">Remove Task</span>
+            <span class="topbar-sub">Load and delete tasks from your list</span>
+        </div>
+        <div class="topbar-right">
+            <button class="btn btn-primary" id="load-tasks" style="padding:8px 18px; font-size:0.82rem;">
+                <i class="fas fa-rotate"></i> Load Tasks
+            </button>
+            <div class="avatar">T</div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="page-header">
+            <div>
+                <h1>Remove Tasks</h1>
+                <p>Click "Load Tasks" to fetch your tasks, then delete any you no longer need</p>
+            </div>
+        </div>
+
+        <!-- Task grid populated by JS -->
+        <div class="tasks-grid task-container" id="task-list">
+            <div class="empty-state">
+                <i class="fas fa-trash-can"></i>
+                <p>Click <strong>Load Tasks</strong> in the top right to fetch your tasks.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/delete.js"></script>
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+    </script>
 </body>
+
 </html>

@@ -1,57 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management System - Home</title>
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="css/index.css"> 
-    <!-- link for icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>TaskFlow - Smart Task Management</title>
+    <meta name="description"
+        content="TaskFlow is a modern task management system to organize your work, track progress, and boost productivity.">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Welcome to Task Management System</h1>
-            <p>Organize your tasks efficiently and boost your productivity.</p>
-        </header>
 
-        <nav>
-            <ul class="navigation">
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
-                <li><a href="user.html"><i class="fas fa-user-plus"></i> Register</a></li>
-            </ul>
-        </nav>
-
-        <section>
-            <h2>Features</h2>
-            <div class="features">
-                <div class="feature-item">
-                    <h3><i class="fas fa-plus-circle"></i> Create Tasks</h3>
-                    <p>Easily add and manage tasks.</p>
-                </div>
-                <div class="feature-item">
-                    <h3><i class="fas fa-edit"></i> Update Tasks</h3>
-                    <p>Edit and update your tasks whenever necessary.</p>
-                </div>
-                <div class="feature-item">
-                    <h3><i class="fas fa-tasks"></i> Track Progress</h3>
-                    <p>Monitor the status of your tasks in real-time.</p>
-                </div>
-                <div class="feature-item">
-                    <h3><i class="fas fa-search"></i> Search & Organize</h3>
-                    <p>Search for specific tasks and organize them by priority, deadline, and status.</p>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p style="color: rgb(35, 49, 49);">&copy; 2024 Task Management System. All rights reserved.</p>
-        </footer>
+    <!-- Animated background particles -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
 
-    <script src="js/app.js"></script> <!-- Link to your JavaScript file if needed -->
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon"><i class="fas fa-check-double"></i></span>
+                TaskFlow
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="user.html" class="nav-cta"><i class="fas fa-rocket"></i> Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-sparkles"></i> Supercharge your productivity
+            </div>
+            <h1 class="hero-title">
+                Manage Tasks<br>
+                <span class="gradient-text">Smarter, Faster.</span>
+            </h1>
+            <p class="hero-subtitle">
+                The all-in-one task management platform that helps teams and individuals stay organized, meet deadlines,
+                and achieve more — every single day.
+            </p>
+            <div class="hero-actions">
+                <a href="user.html" class="btn-primary" id="get-started-btn">
+                    <i class="fas fa-rocket"></i> Get Started Free
+                </a>
+                <a href="login.html" class="btn-secondary" id="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">10K+</span>
+                    <span class="stat-label">Tasks Created</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">98%</span>
+                    <span class="stat-label">Satisfaction Rate</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">24/7</span>
+                    <span class="stat-label">Availability</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="dashboard-mockup">
+                <div class="mockup-header">
+                    <div class="mockup-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <span class="mockup-title">My Tasks</span>
+                </div>
+                <div class="mockup-tasks">
+                    <div class="mockup-task done">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Design landing page</span>
+                        <span class="tag tag-done">Done</span>
+                    </div>
+                    <div class="mockup-task progress">
+                        <i class="fas fa-clock"></i>
+                        <span>Write API documentation</span>
+                        <span class="tag tag-progress">In Progress</span>
+                    </div>
+                    <div class="mockup-task todo">
+                        <i class="far fa-circle"></i>
+                        <span>Set up CI/CD pipeline</span>
+                        <span class="tag tag-todo">To Do</span>
+                    </div>
+                    <div class="mockup-task todo">
+                        <i class="far fa-circle"></i>
+                        <span>Review pull requests</span>
+                        <span class="tag tag-todo">To Do</span>
+                    </div>
+                </div>
+                <div class="mockup-progress-bar">
+                    <div class="progress-label">
+                        <span>Overall Progress</span>
+                        <span>42%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2>Everything you need to <span class="gradient-text">stay on track</span></h2>
+                <p>Powerful tools designed to help you manage tasks efficiently and hit your goals.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" id="feature-create">
+                    <div class="feature-icon-wrap" style="--accent: #6366f1;">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Create Tasks</h3>
+                    <p>Effortlessly add tasks with titles, descriptions, priorities, and deadlines. Stay ahead of your
+                        workload.</p>
+                    <a href="create.html" class="feature-link">Try it <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" id="feature-update">
+                    <div class="feature-icon-wrap" style="--accent: #8b5cf6;">
+                        <i class="fas fa-pen-to-square"></i>
+                    </div>
+                    <h3>Update Tasks</h3>
+                    <p>Edit and refine your tasks any time. Update status, priority, or deadline as your project
+                        evolves.</p>
+                    <a href="update.html" class="feature-link">Try it <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" id="feature-track">
+                    <div class="feature-icon-wrap" style="--accent: #06b6d4;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor task status in real-time. Get a clear overview of what's done, in progress, or pending.
+                    </p>
+                    <a href="dashboard.html" class="feature-link">Try it <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" id="feature-search">
+                    <div class="feature-icon-wrap" style="--accent: #10b981;">
+                        <i class="fas fa-magnifying-glass"></i>
+                    </div>
+                    <h3>Search & Organize</h3>
+                    <p>Find any task instantly. Filter by priority, deadline, or status to keep everything perfectly
+                        organized.</p>
+                    <a href="search.html" class="feature-link">Try it <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-card">
+            <div class="cta-glow"></div>
+            <h2>Ready to take control of your tasks?</h2>
+            <p>Join thousands of users who manage their work smarter with TaskFlow.</p>
+            <a href="user.html" class="btn-primary" id="cta-register-btn">
+                <i class="fas fa-user-plus"></i> Create Free Account
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-icon"><i class="fas fa-check-double"></i></span>
+                TaskFlow
+            </div>
+            <p class="footer-copy">&copy; 2024 Task Management System. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="login.html">Login</a>
+                <a href="user.html">Register</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
 </body>
+
 </html>

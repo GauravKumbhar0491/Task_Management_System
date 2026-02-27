@@ -1,103 +1,26 @@
-body {
-    font-family: 'Comic Sans MS', cursive;
-    background-attachment: fixed;
-    height: 90vh;
-    background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+/* delete.css — page-specific overrides for delete.html */
+
+/* Override task card top stripe to red gradient for delete page */
+.task-card::before {
+    background: var(--grad-danger);
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
+/* Delete button styling */
+.btn-delete-task {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.22);
+    color: #fca5a5;
+    transition: var(--trans);
 }
 
-.task-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+.btn-delete-task:hover {
+    background: rgba(239, 68, 68, 0.28);
+    border-color: rgba(239, 68, 68, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.3);
 }
 
-.task {
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: calc(33.33% - 20px);
-    border-radius: 5px;
-    background-color: white;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.task:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-color: #427D9D;
-}
-
-.task h3 {
-    margin: 0 0 10px;
-    color: #427D9D;
-    text-align: center;
-}
-
-.task:hover h3 {
-    color: #164863;
-}
-
-button {
-    padding: 11px 15px;
-    margin-top: 10px;
-    background-color: #427D9D;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-family: 'Comic Sans MS', cursive;
-    border-radius: 5px;
-    font-size: 15px;
-}
-
-button:hover {
-    background-color: #164863;
-}
-
-.task-actions {
-    text-align: center;
-    margin-top: auto;
-}
-
-.task-actions button {
-    width: 100%;
-}
-
-@media (max-width: 1024px) {
-    .task {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 768px) {
-    .task {
-        width: calc(100% - 20px);
-    }
-
-    button {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        width: 90%;
-    }
-
-    button {
-        padding: 10px;
-        font-size: 13px;
-    }
+/* Danger zone header text */
+.page-header h1 {
+    color: #fca5a5;
 }

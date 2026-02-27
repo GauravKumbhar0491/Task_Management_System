@@ -1,72 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Task</title>
+    <title>Create Task – TaskFlow</title>
+    <meta name="description" content="Create a new task in TaskFlow.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/create.css">
-    <!-- FontAwesome for icons (if needed) -->
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Create a New Task</h1> <!-- Moved inside the container -->
-        <form id="task-form">
-            <!-- Task Title -->
-            <div class="form-group">
-                <label for="title">Task Title:</label>
-                <input type="text" id="title" name="title" placeholder="Enter task title" required>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="sidebar-brand">
+            <span class="brand-icon"><i class="fas fa-check-double"></i></span>
+            <span class="brand-name">TaskFlow</span>
+        </a>
+        <nav class="sidebar-nav">
+            <span class="nav-section-label">Overview</span>
+            <a href="dashboard.html" class="nav-item" id="nav-dashboard">
+                <i class="fas fa-grid-2"></i> Dashboard
+            </a>
+            <div class="nav-divider"></div>
+            <span class="nav-section-label">Tasks</span>
+            <a href="create.html" class="nav-item active" id="nav-create">
+                <i class="fas fa-plus-circle"></i> Create Task
+            </a>
+            <a href="update.html" class="nav-item" id="nav-update">
+                <i class="fas fa-pen-to-square"></i> Update Task
+            </a>
+            <a href="delete.html" class="nav-item" id="nav-delete">
+                <i class="fas fa-trash-can"></i> Remove Task
+            </a>
+            <a href="search.html" class="nav-item" id="nav-search">
+                <i class="fas fa-magnifying-glass"></i> Search Tasks
+            </a>
+            <div class="nav-divider"></div>
+            <a href="index.html" class="nav-item danger">
+                <i class="fas fa-right-from-bracket"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle sidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="topbar-left">
+            <span class="topbar-title">Create Task</span>
+            <span class="topbar-sub">Add a new task to your list</span>
+        </div>
+        <div class="topbar-right">
+            <a href="dashboard.html" class="btn btn-ghost" style="padding:8px 16px; font-size:0.82rem;">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            <div class="avatar">T</div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="page-header">
+            <div>
+                <h1>Create a New Task</h1>
+                <p>Fill in the details below to add a task to your board</p>
             </div>
+        </div>
 
-            <!-- Task Description -->
-            <div class="form-group">
-                <label for="description">Task Description:</label>
-                <textarea id="description" name="description" placeholder="Enter task description"></textarea>
-            </div>
+        <div class="form-card" id="create-form-card">
+            <form id="task-form" novalidate>
 
-            <!-- Priority -->
-            <div class="form-group">
-                <label for="priority">Priority:</label>
-                <select id="priority" name="priority" required>
-                    <option value="" disabled selected>Select priority</option>
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="title">Task Title</label>
+                    <input type="text" id="title" name="title" placeholder="e.g. Design landing page mockup" required>
+                </div>
 
-            <!-- Deadline -->
-            <div class="form-group">
-                <label for="deadline">Deadline:</label>
-                <input type="date" id="deadline" name="deadline">
-            </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description"
+                        placeholder="Describe what needs to be done..."></textarea>
+                </div>
 
-            <!-- Status -->
-            <div class="form-group">
-                <label for="status">Status:</label>
-                <select id="status" name="status" required>
-                    <option value="" disabled selected>Select status</option>
-                    <option value="Pending">Pending</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Completed">Completed</option>
-                </select>
-            </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority" name="priority" required>
+                            <option value="" disabled selected>Select priority</option>
+                            <option value="Low">🟢 Low</option>
+                            <option value="Medium">🟡 Medium</option>
+                            <option value="High">🔴 High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status" name="status" required>
+                            <option value="" disabled selected>Select status</option>
+                            <option value="Pending">⏳ Pending</option>
+                            <option value="In Progress">🔄 In Progress</option>
+                            <option value="Completed">✅ Completed</option>
+                        </select>
+                    </div>
+                </div>
 
-            <!-- Task ID (Read-Only) -->
-            <div class="form-group">
-                <label for="task_id">Task ID:</label>
-                <input type="text" id="task_id" name="task_id" placeholder="Task ID will appear here" readonly>
-            </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="deadline">Deadline</label>
+                        <input type="date" id="deadline" name="deadline">
+                    </div>
+                    <div class="form-group">
+                        <label for="task_id">Task ID <span
+                                style="font-weight:400; text-transform:none; color:var(--text3)">(auto)</span></label>
+                        <input type="text" id="task_id" name="task_id" placeholder="Auto-generated" readonly>
+                    </div>
+                </div>
 
-            <!-- Submit Button -->
-            <button type="submit">Add Task</button>
-        </form>
+                <button type="submit" class="btn btn-primary btn-full" id="add-task-btn" style="margin-top:4px;">
+                    <i class="fas fa-plus"></i> Add Task
+                </button>
+            </form>
 
-        <!-- Task List to Display Added Tasks -->
-        <div id="task-list"></div>
-    </div>
+            <div id="task-list" class="result-msg" style="margin-top:12px;"></div>
+        </div>
+    </main>
 
     <script src="js/app.js"></script>
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+    </script>
 </body>
+
 </html>
