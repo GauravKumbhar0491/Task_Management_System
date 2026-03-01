@@ -287,6 +287,11 @@ app.get('/update', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'update.html'));
 });
 
+// Serve sitemap.xml
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'sitemap.xml'));
+});
+
 // Start the server
 app.listen(3000, '::', () => {
     console.log('Server is running on port 3000');
